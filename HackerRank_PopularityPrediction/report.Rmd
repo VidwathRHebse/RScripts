@@ -1,0 +1,58 @@
+---
+title: "Popularity Prediction"
+author: "Vidwath R Hebse"
+date: "11-Feb-2017"
+output:
+  word_document: default
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+# Data Set Description
+
+  - Bar plot respresents a table of popularity against other predictor variables on train data, to visualize counts.
+  
+  
+```{r, echo=FALSE,include=TRUE,message=FALSE,fig.width=4,fig.height=3}
+train_df <- data.frame(read.csv("/home/vidwath/Downloads/freelancer/GlogmanSachs/data/train.csv"))
+barplot(table(train_df$popularity,train_df$buying_price),xlab = "Popularity",main = "buying price")
+barplot(table(train_df$popularity,train_df$maintainence_cost),xlab = "Popularity",main = "maintainence cost")
+barplot(table(train_df$popularity,train_df$number_of_doors),xlab = "Popularity",main = "number_of_doors")
+barplot(table(train_df$popularity,train_df$number_of_seats),xlab = "Popularity",main = "number_of_seats")
+barplot(table(train_df$popularity,train_df$luggage_boot_size),xlab = "Popularity",main = "luggage_boot_size")
+barplot(table(train_df$popularity,train_df$safety_rating),xlab = "Popularity",main = "safety_rating")
+```
+
+## Summary
+
+### Data set quality
+  - Train and Test data is clean. 
+  - No NA  or missing values in the data set.
+  - As per the column description it had the given key values per column.
+  - No outliers found in the data.
+  - Response variable being "Popularity" and rest variables are predictors.
+
+
+### Data Prepration
+  - Data was supposed to be processed based on its application.
+  - For multinomial regression (using nnet) and random forest, data was supposed to be made as factors.
+  - For XGboost all the data columns should be kept as numeric.
+
+### Model choosen
+
+  - As it is a multinomial classification, though of using decision tree, random forest and multinom (nnet) classification as well as XGboost.
+  - XGboost outperformed compared to other.
+  - XGboost, Randomforest choosen for the reason of Ensembling as the training data set was not that big, needed to convert week learner to strong learner so XGboost performed better than other.
+  
+  
+# Request Note 
+
+  - Keeping every thing in mind, I still was unable to get 1000 result. It would be helpful for me If i get to know where I went wrong, so that I can correct my approach.
+ 
+
+ - Thanks and Regards
+    - Vidwath R Hebse
+    - vidwathrhebse@gmail.com
+    - 9482204411
+
